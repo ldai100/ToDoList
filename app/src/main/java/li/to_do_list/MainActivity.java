@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private ListView lvItems;
     private EditText etNewItem;
     private Button enterButton;
-
+    public final static String EXTRA_MESSAGE = "com.li.to_do_list.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> adapter,
                                                View item, int pos, long id) {
 
-                        seeContent();
+
                     }
         });
     }
@@ -93,6 +93,9 @@ public class MainActivity extends AppCompatActivity {
         enterButton.setVisibility(View.VISIBLE);
 
     }
+
+
+
 
 
     public void onAddItem(View v) {
@@ -127,10 +130,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void seeContent(){
-        Intent intent = new Intent(this, AboutActivity.class);
-        startActivity(intent);
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -153,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
 
                 return true;
             case R.id.about:
-                seeContent();
+
                 return true;
             case R.id.faq:
 
