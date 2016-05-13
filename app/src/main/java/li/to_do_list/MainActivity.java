@@ -145,6 +145,9 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+
+
+    //actions defined for action bars;
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
@@ -162,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
                 seeContent(this.getString(R.string.about_text));
                 return true;
             case R.id.faq:
-
+                seeContent(this.getString(R.string.faq_text));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
