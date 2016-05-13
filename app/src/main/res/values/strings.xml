@@ -7,4 +7,7 @@
     <string name="action_save">Save</string>
     <string name="action_about">About</string>
     <string name="action_faq">FAQ/Directions</string>
+    <string name="current_text">Any thing</string>
+    <string name="about_text">This App is created by Li Dai to familiarize myself with Android development as well as a project for a job application process.</string>
+    <string name="faq_text">Press + sign to add new tasks.\nLong hold on task to delete. \nOther functions not yet complete</string>
 </resources>

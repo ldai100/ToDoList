@@ -1,5 +1,6 @@
 package li.to_do_list;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -107,6 +108,12 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void toAbout(View v) {
+        Intent intent = new Intent(this, AboutActivity.class);
+        startActivity(intent);
+
     }
 
     @Override
