@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
 
 import org.apache.commons.io.FileUtils;
 
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private ListView lvItems;
     private EditText etNewItem;
     private Button enterButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         lvItems.setAdapter(itemsAdapter);
 
         setupListViewListener();
+        anotherListViewListener();
     }
 
     private void setupListViewListener() {
@@ -70,6 +73,20 @@ public class MainActivity extends AppCompatActivity {
 
                 });
     }
+
+    private void anotherListViewListener(){
+        lvItems.setOnItemClickListener(
+                new AdapterView.OnItemClickListener(){
+                    @Override
+                    public void onItemClick(AdapterView<?> adapter,
+                                               View item, int pos, long id) {
+
+                        seeContent();
+                    }
+        });
+    }
+
+
 
     public void wantToAdd(){
         etNewItem.setVisibility(View.VISIBLE);
@@ -110,10 +127,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void toAbout(View v) {
+    private void seeContent(){
         Intent intent = new Intent(this, AboutActivity.class);
         startActivity(intent);
-
     }
 
     @Override
@@ -137,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
 
                 return true;
             case R.id.about:
-
+                seeContent();
                 return true;
             case R.id.faq:
 
