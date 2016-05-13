@@ -5,21 +5,25 @@
     <item
         android:id="@+id/action_add"
         android:title="@string/action_addNew"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="always"/>
 
     <item
         android:id="@+id/action_remove"
         android:title="@string/action_remove"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="always"/>
 
     <item
         android:id="@+id/action_save"
         android:title="@string/action_save"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="always"/>
 
 
-    <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
+    <item android:id="@+id/about"
+        android:title="@string/action_about"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/faq"
+        android:title="@string/action_faq"
         app:showAsAction="never"/>
 
 </menu>

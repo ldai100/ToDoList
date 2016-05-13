@@ -2,9 +2,13 @@ package li.to_do_list;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.support.v7.widget.Toolbar;
@@ -19,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<String> items;
     private ArrayAdapter<String> itemsAdapter;
     private ListView lvItems;
-
+    private EditText etNewItem;
+    private Button enterButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +33,14 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
+
+
+        etNewItem = (EditText) findViewById(R.id.etNewItem);
+        enterButton = (Button) findViewById(R.id.buttonAddItem);
+        //make button and edit text initially invisible;
+        etNewItem.setVisibility(View.GONE);
+        enterButton.setVisibility(View.GONE);
+
 
         lvItems = (ListView) findViewById(R.id.lvItems);
         items = new ArrayList<String>();
@@ -57,12 +70,21 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+    public void wantToAdd(){
+        etNewItem.setVisibility(View.VISIBLE);
+        enterButton.setVisibility(View.VISIBLE);
+
+    }
+
+
     public void onAddItem(View v) {
-        EditText etNewItem = (EditText) findViewById(R.id.etNewItem);
+
         String itemText = etNewItem.getText().toString();
         itemsAdapter.add(itemText);
         etNewItem.setText("");
         writeItems();
+        etNewItem.setVisibility(View.GONE);
+        enterButton.setVisibility(View.GONE);
     }
 
 
@@ -84,6 +106,37 @@ public class MainActivity extends AppCompatActivity {
             FileUtils.writeLines(todoFile, items);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.action_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.action_add:
+                wantToAdd();
+                return true;
+            case R.id.action_remove:
+
+                return true;
+            case R.id.action_save:
+
+                return true;
+            case R.id.about:
+
+                return true;
+            case R.id.faq:
+
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 
