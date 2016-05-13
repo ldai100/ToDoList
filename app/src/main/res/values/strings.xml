@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">To-Do List</string>
+    <string name="enter_button">Enter</string>
+    <string name="edit_text">Enter text</string>
+    <string name="action_addNew">Add New</string>
+    <string name="action_remove">Complete/Remove</string>
+    <string name="action_save">Save</string>
+    <string name="action_settings">Setting</string>
 </resources>

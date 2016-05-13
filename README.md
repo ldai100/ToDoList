@@ -13,4 +13,5 @@ plan:
 
 
 Source of the tutorial: https://guides.codepath.com/android/Basic-Todo-App-Tutorial
+
 Other tutorials used: http://developer.android.com/training/appbar/setting-up.html
