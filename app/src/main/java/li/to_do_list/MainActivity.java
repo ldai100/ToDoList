@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, items);
         lvItems.setAdapter(itemsAdapter);
 
+
+        //adding action listeners;
         setupListViewListener();
         anotherListViewListener();
     }
@@ -73,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+
+    //starts new activity and shows whatever item is click;
     private void anotherListViewListener(){
         lvItems.setOnItemClickListener(
                 new AdapterView.OnItemClickListener(){
@@ -89,13 +93,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
+    //when clicking on action bar, edit text and button will appear to enter item;
     public void wantToAdd(){
         etNewItem.setVisibility(View.VISIBLE);
         enterButton.setVisibility(View.VISIBLE);
 
     }
 
+    //starts a new activity only shows the content;
     private void seeContent(String message){
         Intent intent = new Intent(getApplicationContext(), ContentActivity.class);
         intent.putExtra(EXTRA_MESSAGE, message);
@@ -104,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
+    //adds item and make editText and button disappear;
     public void onAddItem(View v) {
 
         String itemText = etNewItem.getText().toString();
@@ -115,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
         enterButton.setVisibility(View.GONE);
     }
 
-
+    //reading from todo.txt file;
     private void readItems() {
         File filesDir = getFilesDir();
         File todoFile = new File(filesDir, "todo.txt");
@@ -126,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
+    //write to todo.txt file;
     private void writeItems() {
         File filesDir = getFilesDir();
         File todoFile = new File(filesDir, "todo.txt");
@@ -138,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    //shows action bar and menus;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
