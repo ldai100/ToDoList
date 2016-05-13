@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.support.v7.widget.Toolbar;
-import android.widget.TextView;
 
 import org.apache.commons.io.FileUtils;
 
@@ -81,6 +80,9 @@ public class MainActivity extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> adapter,
                                                View item, int pos, long id) {
 
+                        String message = items.get(pos);
+                        seeContent(message);
+
 
                     }
         });
@@ -94,7 +96,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void seeContent(String message){
+        Intent intent = new Intent(getApplicationContext(), ContentActivity.class);
+        intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
 
+    }
 
 
 
@@ -152,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
 
                 return true;
             case R.id.about:
-
+                seeContent(this.getString(R.string.about_text));
                 return true;
             case R.id.faq:
 
